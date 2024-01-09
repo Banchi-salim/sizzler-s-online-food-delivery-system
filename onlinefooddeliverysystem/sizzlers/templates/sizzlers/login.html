@@ -1,60 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login:</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;1,300&display=swap" />
-    <link rel="stylesheet" href="login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizzlars Login</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{% static 'sizzlers/login.css' %}">
 </head>
-    <body>
-        <div class="main-container">
-              <div class="login-frame">
-                <span class="login-text">LOGIN</span>
-                <div class="flex-column-f">
-                  <div class="username">
-                    <div class="rectangle"></div>
-                    <span class="username-text">userame</span>
-                  </div>
-                  <div class="password">
-                    <span class="password-text">password</span>
-                    <div class="rectangle-1"></div>
-                  </div>
-                  <div class="frame">
-                    <div class="frame-2"><span class="login">Login</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="frame-3"></div>
-              <div class="frame-4">
-                <div class="frame-5">
-                  <span class="sizzlars">Sizzlars</span>
-                  <div class="frame-6">
-                    <span class="food-delivery">Food Delivery</span>
-                  </div>
-                </div>
-              </div>
-              <div class="frame-7"><div class="converted"></div></div>
-              <div class="frame-8"><div class="chef-hat"></div></div>
-              <div class="frame-9">
-                <div class="frame-a">
-                  <span class="sizzlars-b">Sizzlars</span>
-                  <div class="frame-c">
-                    <span class="food-delivery-d">Food Delivery</span>
-                  </div>
-                </div>
-                <div class="frame-e">
-                  <span class="snacks">Snacks.</span><span class="brunch">Brunch.</span
-                  ><span class="breakfast">Breakfast.</span
-                  ><span class="swallow">Swallow.</span
-                  ><span class="drinks">Drinks.</span>
-                </div>
-              </div>
-              <div class="group"></div>
-              <div class="social-icon"><div class="brand-twitter"></div></div>
-              <div class="social-icon-f"><div class="brand-twitter-10"></div></div>
-              <div class="social-icon-11"><div class="brand-twitter-12"></div></div>
-              <span class="follow-us-on-any">Follow us on any of these platforms</span>
+<body>
+    <diV class="bodydesign">
+        <div class="logo">
+            <img src="{% static 'sizzlers/login_images/logo.png'%}">
         </div>
-    </body>
+        <div class="logo-large">
+            <img src="{% static 'sizzlers/login_images/logo large.png'%}">
+        </div>
+        <div class="overlay-image">
+            <img src="{% static 'sizzlers/login_images/overlay-image.png'%}">
+        </div>
+    </diV>
+    <div class="loginsection">
+        <h2>Login</h2>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class=" ">
+                <input type="text" class="uname" placeholder="Username:" id="username" name="username" required>
+            </div>
+            <div class=" ">
+                <input type="password" class="pword" placeholder="password:" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
 </html>
