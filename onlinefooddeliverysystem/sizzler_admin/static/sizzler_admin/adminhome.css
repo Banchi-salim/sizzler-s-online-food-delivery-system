@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.welcome h2 {
+    color: #4a4a4a;
+}
+
+.welcome h3 {
+    color: #7c7c7c;
+}
+
+.staff-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.staff-table th,
+.staff-table td {
+    border: 1px solid #e5e5e5;
+    padding: 8px;
+    text-align: left;
+}
+
+.staff-table th {
+    background-color: #f2f2f2;
+}
+
+.add-staff h2,
+.delete-staff h2 {
+    color: #4a4a4a;
+}
+
+.add-staff input,
+.add-staff select,
+.delete-staff select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-staff button,
+.delete-staff button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-staff button:hover,
+.delete-staff button:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'sizzler_admin/orders.css' %}">
+        <title>Dashboard</title>
+    </head>
+    <body class="container-fluid">
+        <div class="col">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                      </li>
+                </ul>
+            </nav>
+            <div class="content col-md-10">
+                <div class="welcome">
+                    <h2>Welcome:</h2>
+                    <!-- get user name to display-->
+                    <h3></h3>
+                </div>
+                <div class="staff-table">
+                    <h2>Staff</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Staff id</th>
+                                <th>Position</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for staff in staff_list %}
+                            <tr>
+                                <td>{{ staff.name }}</td>
+                                <td>{{ staff.staff_id }}</td>
+                                <td>{{ staff.position }}</td>
+                                <td>{{ staff.date_added }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="add-staff">
+                    <h2>Add Staff</h2><br>
+                    <form action="{% url 'adminhome' %}" method="post">
+                        {% csrf_token %}
+                        <label for="name">NAME:</label>
+                        <input type="text" id="name" name="name" class="name" required>
+                        <label for="position">Positon:</label>
+                        <select id="position" name="position" class="position" required>
+                            {% for item in items %}
+                            <option value="{{item.position}}">
+                                {{item.position}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <label for="date">date:</label>
+                        <input type="date" id="date" name="date" class="date" required>
+                        <button type="submit" class="add" id="add">add</button>
+                    </form>
+                </div>
+                <div class="delete-staff">
+                    <h2>Delete Staff:</h2><br>
+                    <form action="{% url 'adminhome' %}" method="post">
+                        {% csrf_token %}
+                        <select id="staff" name="staff" class="position" required>
+                            {% for staff in staff_list %}
+                            <option value="{{staff.id}}">
+                                {{staff.name}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="delete" id="delete">add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

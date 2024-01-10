@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+    <body>
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Active</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                          </li>
+                    </ul>
+                </div>
+        </nav>
+        <div class="content">
+            <div>
+                <h2>Menu:</h2>
+                <!-- get user name to display-->
+                <h3></h3>
+            </div>
+            <div class="add-item">
+                <header>Add Item:</header><br>
+                <label for="item-name">Name</label>
+                <label for="item-price">Name</label>
+                <input type="text" id="item-name" class="item-name">
+                <input type="text" id="item-price" class="item-name">
+                <button type="submit" class="add" id="add">add</button>
+            </div>
+            <div class="add-staff">
+                <h2>Item Availability</h2><br>
+                <label for="name">NAME:</label>
+                <select id="name" class="name">
+                    {% for item in items %}
+                    <option>
+                        {{item.position}}
+                    </option>
+                    {% endfor %}
+                </select>
+                <label for="available">Available</label>
+                <input type="checkbox" id="available" class="available">
+
+                <label for="os">out of stock</label>
+                <input type="checkbox" id="os" class="os">
+
+                <h2>Change Price:</h2><br>
+                <select id="position" class="position">
+                    {% for item in items_list %}
+                    <option>
+                        {{item.name}}
+                    </option>
+                    {% endfor %}
+                </select>
+                <label for="new-price">new price:</label>
+                <input type="text" id="new-price">
+
+                <button type="submit" class="save" id="save">save</button>
+            </div>
+        </div>
+    </body>
+</html>

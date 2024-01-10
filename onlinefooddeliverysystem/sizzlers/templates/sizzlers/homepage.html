@@ -73,21 +73,19 @@
             </div>
 
         </div>
-        <div class="order">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1511" height="1065" viewBox="0 0 1511 1085" fill="none">
-                <path d="M0 0H1511V720L0 1065V0Z" fill="#F4ECE1"/>
-            </svg>
+        <div class="order" id="order">
+            <img src="{% static 'sizzlers/home-images/bgimg.png'%}">
             <div class="order-form">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <label for="food">Select Food:</label>
-                    <br><select name="food" id="food">
+                    <select name="food" id="food">
+                        <option value="" disabled selected hidden>select food</option>
                         {% for item in items %}
                         <option value="{{ item.id }}">{{ item.name }}</option>
                         {% endfor %}
-                    </select><br>
-                    <label for="drink">Select drink:</label>
+                    </select>
                     <br><select name="drink" id="drink">
+                        <option value="" disabled selected hidden>select drink</option>
                         {% for item in items %}
                         <option value="{{ item.id }}">{{ item.name }}</option>
                         {% endfor %}
@@ -98,43 +96,42 @@
 
                     <br><label for="location">Delivery Location:</label>
                     <br><input type="text" name="location" id="location" required>
+                    <label id="Toppings">Toppings</label>
+                    <div class="container">
+                        <div class="layer">
+                            <input type="checkbox" id="option1" style="width:25px;">
+                            <label for="option1">Option 1</label>
 
-                    <br><label for="toppings">Toppings</label>
-                    <br><div id="toppings">
-                        <label for="toppings1">Extra Meat</label><br>
-                        <input type="checkbox" id="toppings1" name="toppings1" value="meat">
+                            <input type="checkbox" id="option2" style="width:25px;">
+                            <label for="option2">Option 2</label>
+                        </div>
+                        <div class="layer">
+                            <input type="checkbox" id="option3" style="width:25px;">
+                            <label for="option3">Option 3</label>
 
-                        <br><label for="toppings2">Chicken</label><br>
-                        <input type="checkbox" id="toppings2" name="toppings2" value="chicken">
+                            <input type="checkbox" id="option4" style="width:25px;">
+                            <label for="option4">Option 4</label>
+                        </div>
+                        <div class="layer">
+                            <input type="checkbox" id="option5" style="width:25px;">
+                            <label for="option5">Option 5</label>
 
-                        <br><label for="toppings3">Plantain</label><br>
-                        <input type="checkbox" id="toppings3" name="toppings3" value="plantain">
-
-                    </div><br>
-
-                    <label for="side">Side</label><br>
-                    <select id="side" name="side">
-                        <option value="c">C Clow</option>
-                        <option value="coslow">Coslow</option>
-                    </select><br>
-
-                    <label for="sauce">Sauce</label><br>
-                    <select id="sauce" name="sauce">
-                        <option value="coslow">Coslow</option>
-                        <option value="coslow">Coslow</option>
-                    </select><br>
-
-                    <label for="extras">Extras</label><br>
-                    <select id="extras" name="extras">
-                        <option value="">None</option>
-                        <option value="egg">Egg</option>
-                    </select><br>
+                            <input type="checkbox" id="option6" style="width:25px;">
+                            <label for="option6">Option 6</label>
+                        </div>
+                    </div>
 
                     <label for="contact">Contact Number:</label><br>
                     <input type="text" name="contact" id="contact" required><br>
 
                     <button id="order-btn"type="submit" value="Order">order</button>
                 </form>
+            </div>
+            <div style="position: absolute;top: 550%;left: 65%;">
+                <img src="{% static 'sizzlers/home-images/bikeman.png'%}">
+            </div>
+            <div class="footer">
+                <img src="{% static 'sizzlers/home-images/footerimg.png'%}">
             </div>
         </div>
     </body>
